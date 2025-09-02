@@ -5,8 +5,12 @@ import RecipeDetailScreen from "./components/RecipeDetailScreen";
 
 export default function App() {
   return (
-    <div className='App'>
-
-    </div>
-  )
+    <>
+      <Header />
+      <HeroSection />
+      <div className="container d-flex flex-wrap gap-3 justify-content-center">
+        
+      </div>
+    </>
+  );
 }
