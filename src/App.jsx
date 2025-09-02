@@ -36,9 +36,11 @@ export default function App() {
         ))}
       </div>
       
-      {showDetail && (
-        <RecipeDetailScreen recipe={selectedRecipe} onClose={() => setShowDetail(false)} />
-      )}
+      <AnimatePresence>
+        {showDetail && (
+          <RecipeDetailScreen recipe={selectedRecipe} onClose={() => setShowDetail(false)} />
+        )}
+      </AnimatePresence>
     </>
   );
 }
