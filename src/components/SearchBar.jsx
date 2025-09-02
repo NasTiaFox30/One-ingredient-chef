@@ -10,14 +10,12 @@ export default function SearchBar({ onSearch }) {
   );
 
   const toggleSelect = (ingredient) => {
-    if (selected.includes(ingredient)) {
-      setSelected(selected.filter(i => i !== ingredient));
-    } else {
-      setSelected([...selected, ingredient]);
-    }
-  };
+    let newSelected = selected.includes(ingredient) ?
+      selected.filter(i => i !== ingredient) : [...selected, ingredient];
 
-  selected.length > 0 ? onSearch(selected) : onSearch(null);
+    onSearch(newSelected);
+    setSelected(newSelected);
+  };
 
   return (
     <div className="text-center mb-4">
