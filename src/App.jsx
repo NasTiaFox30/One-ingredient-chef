@@ -1,5 +1,6 @@
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
+import SearchBar from "./components/SearchBar";
 import RecipeCard from "./components/RecipeCard";
 import RecipeDetailScreen from "./components/RecipeDetailScreen";
 
