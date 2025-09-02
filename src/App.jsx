@@ -34,6 +34,10 @@ export default function App() {
           <RecipeCard key={recipe.id} recipe={recipe} onShow={handleShow} />
         ))}
       </div>
+      
+      {showDetail && (
+        <RecipeDetailScreen recipe={selectedRecipe} onClose={() => setShowDetail(false)} />
+      )}
     </>
   );
 }
