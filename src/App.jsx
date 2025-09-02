@@ -24,7 +24,9 @@ export default function App() {
       <HeroSection />
       <SearchBar onSearch={handleSearch} />
       <div className="container d-flex flex-wrap gap-3 justify-content-center">
-        
+         {filteredRecipes.map(recipe => (
+          <RecipeCard key={recipe.id} recipe={recipe} onShow={handleShow} />
+        ))}
       </div>
     </>
   );
