@@ -11,6 +11,11 @@ export default function App() {
   const [filteredRecipes, setFilteredRecipes] = useState([]);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
 
+  const handleShow = (recipe) => {
+    setSelectedRecipe(recipe);
+    setShowDetail(true);
+  };
+  
   const handleSearch = (ingredients) => {
   const results = recipes.filter(r =>
       r.ingredients.some(i => ingredients.includes(i.name))
