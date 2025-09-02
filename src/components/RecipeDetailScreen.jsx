@@ -13,7 +13,8 @@ export default function RecipeDetailScreen({ recipe, onClose }) {
           <h2>{recipe.title}</h2>
           <Button variant="outline-secondary" onClick={onClose}>✖</Button>
         </div>
-              <p className="text-muted">{recipe.description}</p>
+        
+        <p className="text-muted">{recipe.description}</p>
 
         <div className="recipe-image mb-4">
           <img src={recipe.image} className="img-fluid rounded shadow" alt={recipe.title}/>
@@ -43,7 +44,7 @@ export default function RecipeDetailScreen({ recipe, onClose }) {
               <div key={idx} className="ingredient-card">
                 {i.icon}{i.name} – {i.qty}
                 {i.canReplace && (
-                  <Button variant="outline-warning" size="sm" className="ms-2">🔄 Change prouct</Button>
+                  <Button variant="outline-warning" size="sm" className="ms-2">🔄 Change product</Button>
                 )}
               </div>
             ))}
