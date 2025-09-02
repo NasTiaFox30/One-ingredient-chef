@@ -8,7 +8,13 @@ export default function RecipeDetailScreen({ recipe, onClose }) {
   if (!recipe) return null;
 
   return (
-    <div className="recipe-detail-overlay">
+    <motion.div
+      className="recipe-detail-overlay"
+      initial={{ opacity: 0, y: 90 }}     
+      animate={{ opacity: 1, y: 0 }}      
+      exit={{ opacity: 0, y: 50 }}
+      transition={{ duration: 0.4, ease: "easeInOut" }} 
+    >
       <div className="container py-4">
         <div className="d-flex justify-content-between align-items-center mb-3">
           <h2>{recipe.title}</h2>
@@ -66,6 +72,6 @@ export default function RecipeDetailScreen({ recipe, onClose }) {
           <Button variant="info">📤 Share</Button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
