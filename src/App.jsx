@@ -7,6 +7,10 @@ import RecipeDetailScreen from "./components/RecipeDetailScreen";
 import { recipes } from "./data/recipes";
 
 export default function App() {
+
+  const [filteredRecipes, setFilteredRecipes] = useState([]);
+  const [selectedRecipe, setSelectedRecipe] = useState(null);
+
   return (
     <>
       <Header />
