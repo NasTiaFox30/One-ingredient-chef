@@ -10,6 +10,7 @@ export default function App() {
 
   const [filteredRecipes, setFilteredRecipes] = useState([]);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
+  const [showDetail, setShowDetail] = useState(false);
 
   const handleShow = (recipe) => {
     setSelectedRecipe(recipe);
