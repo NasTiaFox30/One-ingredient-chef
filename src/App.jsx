@@ -15,6 +15,7 @@ export default function App() {
     <>
       <Header />
       <HeroSection />
+      <SearchBar onSearch={handleSearch} />
       <div className="container d-flex flex-wrap gap-3 justify-content-center">
         
       </div>
