@@ -4,6 +4,7 @@ import HeroSection from "./components/HeroSection";
 import SearchBar from "./components/SearchBar";
 import RecipeCard from "./components/RecipeCard";
 import RecipeDetailScreen from "./components/RecipeDetailScreen";
+import { recipes } from "./data/recipes";
 
 export default function App() {
   return (
