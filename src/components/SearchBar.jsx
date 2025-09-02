@@ -18,7 +18,7 @@ export default function SearchBar({ onSearch }) {
   };
 
   return (
-    <div className="text-center mb-4">
+    <div className="text-center mb-4 px-4">
       <input
         type="text"
         placeholder="Search ingredient..."
