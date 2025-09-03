@@ -31,7 +31,9 @@ export default function App() {
   
   return (
     <>
-      <Header />
+      <Header
+        onShowFavourites={() => setShowFavourites(true)}
+      />
       <HeroSection />
       <SearchBar onSearch={handleSearch} />
       <div className="container d-flex flex-wrap gap-3 justify-content-center">
