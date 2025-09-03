@@ -1,5 +1,6 @@
 /* RecipePageScreen */
-.recipe-detail-overlay {
+.recipe-detail-overlay,
+.favourites-overlay {
     position: fixed;
     top: 60px;
     left: 0;
