@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "react-bootstrap";
 import { motion } from "framer-motion";
 
-export default function RecipeDetailScreen({ recipe, onClose }) {
+export default function RecipeDetailScreen({ recipe, onClose, onSaveRecipe }) {
   const [portion, setPortion] = useState(1);
 
   if (!recipe) return null;
