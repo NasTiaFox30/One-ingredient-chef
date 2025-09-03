@@ -46,6 +46,13 @@ export default function App() {
         {showDetail && (
           <RecipeDetailScreen recipe={selectedRecipe} onClose={() => setShowDetail(false)} />
         )}
+   
+        {showFavourites && (
+          <FavouritesScreen
+            favourites={favourites}
+            onClose={() => setShowFavourites(false)}
+          />
+        )}
       </AnimatePresence>
     </>
   );
