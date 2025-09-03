@@ -14,6 +14,9 @@ export default function App() {
   const [selectedRecipe, setSelectedRecipe] = useState(null);
   const [showDetail, setShowDetail] = useState(false);
 
+  const [showFavourites, setShowFavourites] = useState(false);
+  const [favourites, setFavourites] = useState([]);
+
   const handleShow = (recipe) => {
     setSelectedRecipe(recipe);
     setShowDetail(true);
