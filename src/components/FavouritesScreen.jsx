@@ -3,6 +3,7 @@ import { Button, Card } from "react-bootstrap";
 import { motion } from "framer-motion";
 
 export default function FavouritesScreen({ favourites, onClose }) {
+  const [sortMode, setSortMode] = useState("newest");
 
   if (!favourites || favourites.length === 0) {
     return (
@@ -22,6 +23,11 @@ export default function FavouritesScreen({ favourites, onClose }) {
       </motion.div>
     );
   }
+
+  const sortedFavourites = [...favourites].sort((a, b) => {
+  if (sortMode === "newest") return new Date(b.savedAt) - new Date(a.savedAt);
+  return 0;
+  });
 
   return (
     <motion.div
