@@ -6,7 +6,7 @@ export default function Header({ onShowFavourites }) {
     <Navbar bg="light" expand="lg" className="mb-4">
       <Container className="justify-content-between">
         <Nav>
-          <Nav.Link href="#">Favourites</Nav.Link>
+          <Nav.Link onClick={onShowFavourites}>Favourites</Nav.Link>
         </Nav>
         <div className="d-flex align-items-center">
           <img src={logo} className="img-fluid me-2" style={{ height: '40px' }} alt="Logo" />
