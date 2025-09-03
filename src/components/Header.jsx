@@ -1,7 +1,7 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
 import logo from "../assets/logo.gif";
 
-export default function Header() {
+export default function Header({ onShowFavourites }) {
   return (
     <Navbar bg="light" expand="lg" className="mb-4">
       <Container className="justify-content-between">
