@@ -50,7 +50,7 @@ export default function App() {
 
       <AnimatePresence>
         {showDetail && (
-          <RecipeDetailScreen recipe={selectedRecipe} onClose={() => setShowDetail(false)} />
+          <RecipeDetailScreen recipe={selectedRecipe} onSaveRecipe={() => handleSaveRecipe(selectedRecipe)} onClose={() => setShowDetail(false)} />
         )}
    
         {showFavourites && (
