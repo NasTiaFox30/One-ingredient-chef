@@ -28,6 +28,12 @@ export default function App() {
     );
     setFilteredRecipes(results);
   };
+
+  const handleSaveRecipe = (recipe) => {
+  const newRecipe = { ...recipe, savedAt: new Date().toISOString() };
+    setFavourites(prev => [newRecipe, ...prev]);
+  };
+
   
   return (
     <>
