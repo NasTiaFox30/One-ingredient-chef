@@ -31,8 +31,11 @@ export default function App() {
 
   const handleSaveRecipe = (recipe) => {
   const newRecipe = { ...recipe, savedAt: new Date().toISOString() };
-    setFavourites(prev => [newRecipe, ...prev]);
-  };
+  setFavourites(prev => {
+    if (prev.find(r => r.id === recipe.id)) return prev;
+    return [newRecipe, ...prev];
+  });
+};
 
   
   return (
