@@ -7,6 +7,23 @@ export default function RecipeDetailScreen({ recipe, onClose, onSaveRecipe }) {
 
   if (!recipe) return null;
 
+  const handleSaveRecipe = async () => {
+    if (!user) {
+      alert("Please login to save recipes!");
+      return;
+    }
+    await addDoc(collection(db, "favourites"), {
+      userId: user.uid,
+      recipeId: recipe.id,
+      title: recipe.title,
+      image: recipe.image,
+      time: recipe.time,
+      difficulty: recipe.difficulty,
+      savedAt: serverTimestamp()
+    });
+    alert("Recipe saved to favourites! ❤️");
+  };
+
   return (
     <motion.div
       className="recipe-detail-overlay"
