@@ -19,7 +19,11 @@ export default function Header({ user, onShowFavourites }) {
           </Navbar.Brand>
         </div>
         <Nav>
-          <Nav.Link href="#">New recipe</Nav.Link>
+          {user ? (
+            <Button variant="outline-danger" onClick={logout}>Logout</Button>
+          ) : (
+            <Button variant="outline-success" onClick={loginWithGoogle}>Login with Google</Button>
+          )}
         </Nav>
       </Container>
     </Navbar>
