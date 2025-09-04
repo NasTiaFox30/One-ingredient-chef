@@ -38,6 +38,17 @@ export default function App() {
     }
   };
 
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      if (currentUser) {
+        fetchFavourites(currentUser.uid);
+      } else {
+        setFavourites([]);
+      }
+    });
+    return () => unsubscribe();
+  }, []);
 
   // Favourites
   const fetchFavourites = async (uid) => {
