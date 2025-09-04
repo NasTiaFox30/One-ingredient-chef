@@ -94,6 +94,13 @@ export default function App() {
         onLogout={handleLogout}
         user={user}
       />
+      <div className="container text-center mb-3">
+        {user ? (
+          <p>Welcome, {user.displayName}</p>
+        ) : (
+          <p>Can't find an interesting recipe? You are at the right place!</p>
+        )}
+      </div>
 
       <HeroSection />
       <SearchBar onSearch={handleSearch} />
