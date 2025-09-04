@@ -69,15 +69,15 @@ export default function App() {
     setFavourites(favs);
   };
 
-  
+  // Search by ingredients
   const handleSearch = (ingredients) => {
-  const results = recipes.filter(r =>
+    const results = recipes.filter(r =>
       r.ingredients.some(i => ingredients.includes(i.name))
     );
     setFilteredRecipes(results);
   };
 
-  // Save Recipe
+  // Save recipe to favourites
   const handleSaveRecipe = async (recipe) => {
     if (!user) {
       alert("Please login first to save recipes!");
@@ -88,6 +88,7 @@ export default function App() {
     fetchFavourites(user.uid);
     alert("Recipe saved! ❤️");
   };
+
   return (
     <>
       <Header
@@ -96,6 +97,7 @@ export default function App() {
         onLogout={handleLogout}
         user={user}
       />
+
       <div className="container text-center mb-3">
         {user ? (
           <p>Welcome, {user.displayName}</p>
@@ -106,6 +108,7 @@ export default function App() {
 
       <HeroSection />
       <SearchBar onSearch={handleSearch} />
+
       <div className="container d-flex flex-wrap gap-3 justify-content-center">
          {filteredRecipes.map(recipe => (
           <RecipeCard key={recipe.id} recipe={recipe} onShow={(r) => { setSelectedRecipe(r); setShowDetail(true); }} />
@@ -120,7 +123,7 @@ export default function App() {
             onClose={() => setShowDetail(false)}
           />
         )}
-   
+
         {showFavourites && (
           <FavouritesScreen
             favourites={favourites}
