@@ -90,7 +90,11 @@ export default function App() {
     <>
       <Header
         onShowFavourites={() => setShowFavourites(true)}
+        onLogin={handleLogin}
+        onLogout={handleLogout}
+        user={user}
       />
+
       <HeroSection />
       <SearchBar onSearch={handleSearch} />
       <div className="container d-flex flex-wrap gap-3 justify-content-center">
