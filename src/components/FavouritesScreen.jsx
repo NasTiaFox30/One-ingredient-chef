@@ -24,11 +24,6 @@ export default function FavouritesScreen({ favourites, onClose }) {
     );
   }
 
-  const sortedFavourites = [...favourites].sort((a, b) => {
-  if (sortMode === "newest") return new Date(b.savedAt) - new Date(a.savedAt);
-  return 0;
-  });
-
   return (
     <motion.div
       className="favourites-overlay"
