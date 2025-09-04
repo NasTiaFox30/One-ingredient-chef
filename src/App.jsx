@@ -75,15 +75,17 @@ export default function App() {
     setFilteredRecipes(results);
   };
 
-  const handleSaveRecipe = (recipe) => {
-  const newRecipe = { ...recipe, savedAt: new Date().toISOString() };
-  setFavourites(prev => {
-    if (prev.find(r => r.id === recipe.id)) return prev;
-    return [newRecipe, ...prev];
-  });
-};
-
-  
+  // Save Recipe
+  const handleSaveRecipe = async (recipe) => {
+    if (!user) {
+      alert("Please login first to save recipes!");
+      return;
+    }
+    const favRef = doc(db, "users", user.uid, "favourites", recipe.id);
+    await setDoc(favRef, { ...recipe, savedAt: new Date().toISOString() });
+    fetchFavourites(user.uid);
+    alert("Recipe saved! ❤️");
+  };
   return (
     <>
       <Header
