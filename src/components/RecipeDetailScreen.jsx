@@ -68,7 +68,7 @@ export default function RecipeDetailScreen({ recipe, onClose, onSaveRecipe }) {
         </div>
 
         <div className="d-flex gap-3 mb-4">
-          <Button variant="primary" onClick={onSaveRecipe}>⭐ Save</Button>
+          <Button variant="primary" onClick={handleSaveRecipe}>⭐ Save</Button>
           <Button variant="info">📤 Share</Button>
         </div>
       </div>
