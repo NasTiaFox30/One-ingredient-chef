@@ -8,7 +8,7 @@ import RecipeDetailScreen from "./components/RecipeDetailScreen";
 import FavouritesScreen from "./components/FavouritesScreen";
 
 import { db, auth, provider } from "./firebase.config";
-import { collection, getDocs, setDoc, doc } from "firebase/firestore";
+import { collection, getDocs, setDoc, doc, getDoc } from "firebase/firestore";
 import { signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
 
 export default function App() {
