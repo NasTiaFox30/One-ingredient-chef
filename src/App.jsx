@@ -38,6 +38,15 @@ export default function App() {
     }
   };
 
+  // Create user (first time login)
+  const createNewUser = async (currentUser) => {
+    const userRef = doc(db, "users", currentUser.uid);
+    const userSnap = await getDoc(userRef);
+    if (!userSnap.exists()) {
+      await setDoc(userRef, { name: currentUser.displayName, createdAt: new Date().toISOString() });
+    }
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
