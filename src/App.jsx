@@ -12,7 +12,7 @@ import { collection, getDocs, setDoc, doc } from "firebase/firestore";
 import { signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
 
 export default function App() {
-
+  const [recipes, setRecipes] = useState([]);
   const [filteredRecipes, setFilteredRecipes] = useState([]);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
   const [showDetail, setShowDetail] = useState(false);
