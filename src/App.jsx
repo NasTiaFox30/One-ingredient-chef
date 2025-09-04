@@ -110,8 +110,12 @@ export default function App() {
       <SearchBar onSearch={handleSearch} />
 
       <div className="container d-flex flex-wrap gap-3 justify-content-center">
-         {filteredRecipes.map(recipe => (
-          <RecipeCard key={recipe.id} recipe={recipe} onShow={(r) => { setSelectedRecipe(r); setShowDetail(true); }} />
+        {filteredRecipes.map(recipe => (
+          <RecipeCard
+            key={recipe.id}
+            recipe={recipe}
+            onShow={(r) => { setSelectedRecipe(r); setShowDetail(true); }}
+          />
         ))}
       </div>
 
