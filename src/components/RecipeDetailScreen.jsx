@@ -2,7 +2,10 @@ import { useState } from "react";
 import { Button } from "react-bootstrap";
 import { motion } from "framer-motion";
 
-export default function RecipeDetailScreen({ recipe, onClose, onSaveRecipe }) {
+import { db } from "../firebase.config";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+
+export default function RecipeDetailScreen({ recipe, onClose, user }) {
   const [portion, setPortion] = useState(1);
 
   if (!recipe) return null;
