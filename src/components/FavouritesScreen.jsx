@@ -8,6 +8,32 @@ import { collection, getDocs, query, where, orderBy } from "firebase/firestore";
 export default function FavouritesScreen({ user, onClose }) {
   const [favourites, setFavourites] = useState([]);
 
+  useEffect(() => {
+    if (!user) return;
+    const fetchFavourites = async () => {
+      const q = query(
+        collection(db, "favourites"),
+        where("userId", "==", user.uid),
+        orderBy("savedAt", "desc")
+      );
+      const querySnapshot = await getDocs(q);
+      const data = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      setFavourites(data);
+    };
+    fetchFavourites();
+  }, [user]);
+
+  if (!user) {
+    return (
+      <motion.div className="favourites-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+        <div className="container text-center">
+          <h2>Please login first ;)</h2>
+          <Button variant="success" className="mt-4" onClick={onClose}>Go back</Button>
+        </div>
+      </motion.div>
+    );
+  }
+
   if (!favourites || favourites.length === 0) {
     return (
       <motion.div
