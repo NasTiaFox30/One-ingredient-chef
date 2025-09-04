@@ -53,13 +53,15 @@ export default function App() {
   useEffect(() => {
     fetchRecipes();
   }, []);
+
+  // Fetch all recipes from Firestore
   const fetchRecipes = async () => {
     const querySnapshot = await getDocs(collection(db, "recipes"));
     const data = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     setRecipes(data);
   };
 
-  // Favourites
+  // Fetch favourites for user
   const fetchFavourites = async (uid) => {
     const favRef = collection(db, "users", uid, "favourites");
     const snapshot = await getDocs(favRef);
