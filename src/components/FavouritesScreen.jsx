@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import { motion } from "framer-motion";
 
-export default function FavouritesScreen({ favourites, onClose }) {
-  const [sortMode, setSortMode] = useState("newest");
+import { db } from "../firebase.config";
+import { collection, getDocs, query, where, orderBy } from "firebase/firestore";
+
+export default function FavouritesScreen({ user, onClose }) {
+  const [favourites, setFavourites] = useState([]);
 
   if (!favourites || favourites.length === 0) {
     return (
