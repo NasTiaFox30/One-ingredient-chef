@@ -6,7 +6,10 @@ import SearchBar from "./components/SearchBar";
 import RecipeCard from "./components/RecipeCard";
 import RecipeDetailScreen from "./components/RecipeDetailScreen";
 import FavouritesScreen from "./components/FavouritesScreen";
-import { recipes } from "./data/recipes";
+
+import { db, auth, provider } from "./firebase.config";
+import { collection, getDocs, setDoc, doc } from "firebase/firestore";
+import { signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
 
 export default function App() {
 
