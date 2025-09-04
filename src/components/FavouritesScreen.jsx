@@ -39,7 +39,7 @@ export default function FavouritesScreen({ favourites, onClose }) {
         </div>
 
         <div className="row">
-          {sortedFavourites.map((recipe) => (
+          {favourites.map(recipe => (
             <div key={recipe.id} className="col-md-4 mb-4">
               <Card className="shadow-sm h-100">
                 <Card.Img variant="top" src={recipe.image} alt={recipe.title} />
