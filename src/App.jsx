@@ -20,10 +20,24 @@ export default function App() {
   const [showFavourites, setShowFavourites] = useState(false);
   const [favourites, setFavourites] = useState([]);
 
-  const handleShow = (recipe) => {
-    setSelectedRecipe(recipe);
-    setShowDetail(true);
+  const [user, setUser] = useState(null);
+
+  //Login/Logout with Google
+  const handleLogin = async () => {
+    try {
+      await signInWithPopup(auth, provider);
+    } catch (error) {
+      console.error("Login error:", error);
+    }
   };
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
+  };
+
   
   const handleSearch = (ingredients) => {
   const results = recipes.filter(r =>
