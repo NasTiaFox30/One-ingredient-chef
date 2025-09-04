@@ -135,6 +135,7 @@ export default function App() {
             recipe={selectedRecipe}
             onSaveRecipe={() => handleSaveRecipe(selectedRecipe)}
             onClose={() => setShowDetail(false)}
+            user={user}
           />
         )}
 
@@ -142,6 +143,7 @@ export default function App() {
           <FavouritesScreen
             favourites={favourites}
             onClose={() => setShowFavourites(false)}
+            user={user}
           />
         )}
       </AnimatePresence>
