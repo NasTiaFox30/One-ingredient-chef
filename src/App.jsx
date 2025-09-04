@@ -51,6 +51,7 @@ export default function App() {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       if (currentUser) {
+        await createNewUser(currentUser);
         fetchFavourites(currentUser.uid);
       } else {
         setFavourites([]);
