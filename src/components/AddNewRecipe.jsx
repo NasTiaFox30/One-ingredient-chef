@@ -16,7 +16,7 @@ import { Button } from "react-bootstrap";
     return downloadURL;
 };
 
-export default function AddNewRecipe() {
+export default function AddNewRecipe({ onClose }) {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [time, setTime] = useState("");
