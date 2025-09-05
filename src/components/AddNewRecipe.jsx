@@ -102,6 +102,12 @@ export default function AddNewRecipe() {
             setRecipeIngredients(recipeIngredients.slice(0, -1));
         }
     };
+    
+    const handleIngredientChange = (index, field, value) => {
+        const newIngredients = [...recipeIngredients];
+        newIngredients[index][field] = value;
+        setRecipeIngredients(newIngredients);
+    };
 
     return (
         <div className="container mt-4">
