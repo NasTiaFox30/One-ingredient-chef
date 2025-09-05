@@ -69,29 +69,29 @@ export default function AddNewRecipe() {
                     />
                 
                 <input
-                type="text"
-                placeholder="Description"
-                className="form-control mb-2"
-                value={description}
-                onChange={(e) => setTitle(e.target.value)}
-                    />
+                    type="text"
+                    placeholder="Description"
+                    className="form-control mb-2"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                />
                 
                 <input
-                type="text"
-                placeholder="Time in min."
-                className="form-control mb-2"
-                value={time}
-                onChange={(e) => setTitle(e.target.value)}
-                    />
+                    type="text"
+                    placeholder="Time in min."
+                    className="form-control mb-2"
+                    value={time}
+                    onChange={(e) => setTime(e.target.value)}
+                />
 
                 <input
-                type="text"
-                placeholder="Difficulty - Easy, Medium, Hard"
-                className="form-control mb-2"
-                value={difficulty}
-                onChange={(e) => setTitle(e.target.value)}
-                    />
-                
+                    type="text"
+                    placeholder="Difficulty - Easy, Medium, Hard"
+                    className="form-control mb-2"
+                    value={difficulty}
+                    onChange={(e) => setDifficulty(e.target.value)}
+                />
+
                 <input
                 type="text"
                 placeholder="Step - 1"
