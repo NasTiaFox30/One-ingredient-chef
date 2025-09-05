@@ -18,7 +18,6 @@ export default function App() {
   const [showDetail, setShowDetail] = useState(false);
 
   const [showFavourites, setShowFavourites] = useState(false);
-  const [favourites, setFavourites] = useState([]);
 
   const [user, setUser] = useState(null);
 
@@ -86,7 +85,6 @@ export default function App() {
     }
     const favRef = doc(db, "users", user.uid, "favourites", recipe.id);
     await setDoc(favRef, { ...recipe, savedAt: new Date().toISOString() });
-    fetchFavourites(user.uid);
     alert("Recipe saved! ❤️");
   };
 
@@ -132,7 +130,6 @@ export default function App() {
 
         {showFavourites && (
           <FavouritesScreen
-            favourites={favourites}
             onClose={() => setShowFavourites(false)}
             user={user}
           />
