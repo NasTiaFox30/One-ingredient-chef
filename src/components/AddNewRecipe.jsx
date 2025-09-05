@@ -22,6 +22,39 @@ export default function AddNewRecipe() {
     const [steps, ] = useState([]);
     const [imageFile, setImageFile] = useState(null);
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (!title || !imageFile) {
+            alert("Please enter title and select an image");
+            return;
+        }
+
+        const imageUrl = await uploadImage(imageFile);
+
+        await addDoc(collection(db, "recipes"), {
+            title,
+            description,
+            image: imageUrl,
+            time,
+            difficulty,
+            ingredients: [
+            { icon: "🥚", name: "Eggs", qty: "2 pcs" },
+            { icon: "🧀", name: "Cheese", qty: "50 g" },
+            { icon: "🥛", name: "Milk", qty: "50 ml" }
+            ],
+            steps: [],
+            createdAt: new Date().toISOString()
+        });
+
+        alert("Recipe added successfully!");
+        setTitle("");
+        setDescription("");
+        setTime("");
+        setDifficulty("");
+        setSteps("");
+        setImageFile(null);
+    };
+
     return (
         <div className="container mt-4">
             <h2>Add New Recipe</h2>
