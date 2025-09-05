@@ -22,6 +22,9 @@ export default function AddNewRecipe() {
     const [steps, setSteps] = useState([""]);
     const [imageFile, setImageFile] = useState(null);
 
+    const [recipeIngredients, setRecipeIngredients] = useState([{ name: "", qty: "" }]);
+    const [ingredients, setingredients] = useState([]);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!title || !imageFile) {
