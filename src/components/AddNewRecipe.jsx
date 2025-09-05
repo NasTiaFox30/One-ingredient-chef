@@ -42,7 +42,7 @@ export default function AddNewRecipe() {
             { icon: "🧀", name: "Cheese", qty: "50 g" },
             { icon: "🥛", name: "Milk", qty: "50 ml" }
             ],
-            steps: [],
+            steps: steps,
             createdAt: new Date().toISOString()
         });
 
