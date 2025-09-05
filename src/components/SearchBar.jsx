@@ -7,6 +7,17 @@ export default function SearchBar({ onSearch }) {
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState([]);
 
+  // Fetch ingredients from Firestore 
+  useEffect(() => {
+    fetchIngredients(); 
+  }, []);
+
+  const fetchIngredients = async () => {
+    const querySnapshot = await getDocs(collection(db, "ingredients"));
+    const data = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    setIngredients(data);
+  };
+
   const filtered = ingredients.filter(item =>
     item.toLowerCase().includes(query.toLowerCase())
   );
