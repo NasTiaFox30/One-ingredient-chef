@@ -19,7 +19,7 @@ export default function SearchBar({ onSearch }) {
   };
 
   const filtered = ingredients.filter(item =>
-    item.toLowerCase().includes(query.toLowerCase())
+    item.name.toLowerCase().includes(query.toLowerCase())
   );
 
   const toggleSelect = (ingredient) => {
@@ -42,12 +42,12 @@ export default function SearchBar({ onSearch }) {
       <div className="d-flex flex-wrap justify-content-center gap-2 mb-3">
         {filtered.map((item) => (
           <span
-            key={item}
-            className={`badge p-2 ${selected.includes(item) ? "bg-success" : "bg-secondary"}`}
+            key={item.id}
+            className={`badge p-2 ${selected.includes(item.name) ? "bg-success" : "bg-secondary"}`}
             style={{ cursor: "pointer" }}
-            onClick={() => toggleSelect(item)}
+            onClick={() => toggleSelect(item.name)}
           >
-            {item} {selected.includes(item) && "✔️"}
+            {item.icon} {item.name} {selected.includes(item.name) && "✔️"}
           </span>
         ))}
       </div>
