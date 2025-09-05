@@ -51,7 +51,7 @@ export default function AddNewRecipe() {
         setDescription("");
         setTime("");
         setDifficulty("");
-        setSteps("");
+        setSteps([]);
         setImageFile(null);
     };
 
