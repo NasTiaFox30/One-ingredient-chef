@@ -110,61 +110,73 @@ export default function AddNewRecipe() {
     };
 
     return (
-        <div className="container mt-4">
-            <h2>Add New Recipe</h2>
-            <form onSubmit={handleSubmit}>
-                <input type="text" placeholder="Recipe title" className="form-control mb-2" value={title} onChange={(e) => setTitle(e.target.value)} />
-                <input type="text" placeholder="Description" className="form-control mb-2" value={description} onChange={(e) => setDescription(e.target.value)} />
-                <input type="text" placeholder="Time in min." className="form-control mb-2" value={time} onChange={(e) => setTime(e.target.value)} />
-                <input type="text" placeholder="Difficulty - Easy, Medium, Hard" className="form-control mb-2" value={difficulty} onChange={(e) => setDifficulty(e.target.value)} />                
-                
-                <div className="mb-2">
-                    <p><strong>Ingredients:</strong></p>
-                    {recipeIngredients.map((ing, index) => (
-                        <div key={index} className="d-flex gap-2 mb-2">
-                            <select
-                                className="form-select"
-                                value={ing.name}
-                                onChange={(e) => handleIngredientChange(index, "name", e.target.value)}
-                            >
-                                <option value="">Select ingredient...</option>
-                                {ingredients.map((item, i) => (
-                                    <option key={i} value={item.name}>{item.name} {item.icon}</option>
-                                ))}
-                            </select>
+        <motion.div
+            className="recipe-detail-overlay"
+            initial={{ opacity: 0, y: 90 }}     
+            animate={{ opacity: 1, y: 0 }}      
+            exit={{ opacity: 0, y: 50 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }} 
+        >
+            <div className="container mt-4">
+                <div className="d-flex justify-content-between align-items-center mb-3">
+                    <h2>Add New Recipe🗒️</h2>
+                    <Button variant="outline-secondary" onClick={onClose}>✖</Button>
+                </div>
+
+                <form onSubmit={handleSubmit}>
+                    <input type="text" placeholder="Recipe title" className="form-control mb-2" value={title} onChange={(e) => setTitle(e.target.value)} />
+                    <input type="text" placeholder="Description" className="form-control mb-2" value={description} onChange={(e) => setDescription(e.target.value)} />
+                    <input type="text" placeholder="Time in min." className="form-control mb-2" value={time} onChange={(e) => setTime(e.target.value)} />
+                    <input type="text" placeholder="Difficulty - Easy, Medium, Hard" className="form-control mb-2" value={difficulty} onChange={(e) => setDifficulty(e.target.value)} />                
+                    
+                    <div className="mb-2">
+                        <p><strong>Ingredients:</strong></p>
+                        {recipeIngredients.map((ing, index) => (
+                            <div key={index} className="d-flex gap-2 mb-2">
+                                <select
+                                    className="form-select"
+                                    value={ing.name}
+                                    onChange={(e) => handleIngredientChange(index, "name", e.target.value)}
+                                >
+                                    <option value="">Select ingredient...</option>
+                                    {ingredients.map((item, i) => (
+                                        <option key={i} value={item.name}>{item.name} {item.icon}</option>
+                                    ))}
+                                </select>
+                                <input
+                                    type="text"
+                                    placeholder="Quantity (e.g., 200 g)"
+                                    className="form-control"
+                                    value={ing.qty}
+                                    onChange={(e) => handleIngredientChange(index, "qty", e.target.value)}
+                                />
+                            </div>
+                        ))}
+                        <button type="button" onClick={addIngredient} className="btn btn-secondary me-2">Add Ingredient +</button>
+                        <button type="button" onClick={removeLastIngredient} className="btn btn-danger">Remove last x</button>
+                    </div>
+
+                    <div className="mb-2">
+                        <p><strong>Steps of cooking:</strong></p>
+                        {steps.map((step, index) => (
                             <input
+                                key={index}
                                 type="text"
-                                placeholder="Quantity (e.g., 200 g)"
-                                className="form-control"
-                                value={ing.qty}
-                                onChange={(e) => handleIngredientChange(index, "qty", e.target.value)}
+                                placeholder={`Step - ${index + 1}`}
+                                className="form-control mb-2"
+                                value={step}
+                                onChange={(e) => handleStepChange(index, e.target.value)}
                             />
-                        </div>
-                    ))}
-                    <button type="button" onClick={addIngredient} className="btn btn-secondary me-2">Add Ingredient +</button>
-                    <button type="button" onClick={removeLastIngredient} className="btn btn-danger">Remove last x</button>
-                </div>
+                        ))}
+                        <button type="button" onClick={addStep} className="btn btn-secondary me-2">Add Step +</button>
+                        <button type="button" onClick={removeLastStep} className="btn btn-danger">Remove last x</button>
+                    </div>
+                    
+                    <input type="file" className="form-control mb-2" onChange={(e) => setImageFile(e.target.files[0])} />
 
-                <div className="mb-2">
-                    <p><strong>Steps of cooking:</strong></p>
-                    {steps.map((step, index) => (
-                        <input
-                            key={index}
-                            type="text"
-                            placeholder={`Step - ${index + 1}`}
-                            className="form-control mb-2"
-                            value={step}
-                            onChange={(e) => handleStepChange(index, e.target.value)}
-                        />
-                    ))}
-                    <button type="button" onClick={addStep} className="btn btn-secondary me-2">Add Step +</button>
-                    <button type="button" onClick={removeLastStep} className="btn btn-danger">Remove last x</button>
-                </div>
-                
-                <input type="file" className="form-control mb-2" onChange={(e) => setImageFile(e.target.files[0])} />
-
-                <button type="submit" className="btn btn-primary">Add Recipe</button>
-            </form>
-        </div>
+                    <button type="submit" className="btn btn-primary">Add Recipe</button>
+                </form>
+            </div>
+        </motion.div>
     );
 }
