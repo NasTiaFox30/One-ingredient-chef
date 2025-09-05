@@ -43,7 +43,7 @@ export default function RecipeDetailScreen({ recipe, onClose, user }) {
           <img src={recipe.image} className="img-fluid rounded shadow" alt={recipe.title}/>
         </div>
 
-        <div className="mb-4"><strong>Cookig Time:</strong> ⏱ {recipe.time}</div>
+        <div className="mb-4"><strong>Cooking Time:</strong> ⏱ {recipe.time}</div>
 
         <div className="mb-4">
           <strong>Yield:</strong>
