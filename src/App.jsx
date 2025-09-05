@@ -111,6 +111,10 @@ export default function App() {
       <HeroSection />
       <SearchBar onSearch={handleSearch} />
 
+      <div className="container text-center mb-3">
+        <button type="button" className="btn btn-outline-success" onClick={() => setShowNewRecipe(true)}>Add your own recipe🗒️+</button>
+      </div>
+
       <div className="container d-flex flex-wrap gap-3 justify-content-center">
         {filteredRecipes.map(recipe => (
           <RecipeCard
