@@ -45,6 +45,17 @@ export default function AddNewRecipe() {
 
         const imageUrl = await uploadImage(imageFile);
 
+        const finalIngredients = recipeIngredients
+            .filter(ing => ing.name && ing.qty)
+            .map(ing => {
+                const foundIngredient = ingredients.find(item => item.name === ing.name);
+                return {
+                    name: ing.name,
+                    qty: ing.qty,
+                    icon: foundIngredient ? foundIngredient.icon : "NaN"
+                };
+            });
+
         await addDoc(collection(db, "recipes"), {
             title,
             description,
