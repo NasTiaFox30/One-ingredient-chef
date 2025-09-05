@@ -44,7 +44,7 @@ export default function SearchBar({ onSearch }) {
           <span
             key={item.id}
             className={`badge p-2 ${selected.includes(item.name) ? "bg-success" : "bg-secondary"}`}
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer", fontSize: "1rem" }}
             onClick={() => toggleSelect(item.name)}
           >
             {item.icon} {item.name} {selected.includes(item.name) && "✔️"}
