@@ -65,6 +65,12 @@ export default function AddNewRecipe() {
         }
     };
 
+    const handleStepChange = (index, value) => {
+        const newSteps = [...steps];
+        newSteps[index] = value;
+        setSteps(newSteps);
+    };
+
     return (
         <div className="container mt-4">
             <h2>Add New Recipe</h2>
