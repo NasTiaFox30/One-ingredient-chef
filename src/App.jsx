@@ -20,6 +20,8 @@ export default function App() {
 
   const [showFavourites, setShowFavourites] = useState(false);
 
+  const [showNewRecipe, setShowNewRecipe] = useState(false);
+
   const [user, setUser] = useState(null);
 
   //Login/Logout with Google
