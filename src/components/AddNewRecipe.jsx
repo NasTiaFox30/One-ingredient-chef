@@ -61,12 +61,12 @@ export default function AddNewRecipe() {
             <form onSubmit={handleSubmit}>
                 
                 <input
-                type="text"
-                placeholder="Recipe title"
-                className="form-control mb-2"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                    />
+                    type="text"
+                    placeholder="Recipe title"
+                    className="form-control mb-2"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                />
                 
                 <input
                     type="text"
@@ -115,11 +115,10 @@ export default function AddNewRecipe() {
                     />
                     
                 <input
-                type="file"
-                className="form-control mb-2"
-                onChange={(e) => setImageFile(e.target.files[0])}
-                    />
-
+                    type="file"
+                    className="form-control mb-2"
+                    onChange={(e) => setImageFile(e.target.files[0])}
+                />
                 <button className="btn btn-primary">Add Recipe</button>
             </form>
         </div>
