@@ -21,4 +21,74 @@ export default function AddNewRecipe() {
     const [difficulty, setDifficulty] = useState("");
     const [steps, ] = useState([]);
     const [imageFile, setImageFile] = useState(null);
+
+    return (
+        <div className="container mt-4">
+            <h2>Add New Recipe</h2>
+            <form onSubmit={handleSubmit}>
+                
+                <input
+                type="text"
+                placeholder="Recipe title"
+                className="form-control mb-2"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                    />
+                
+                <input
+                type="text"
+                placeholder="Description"
+                className="form-control mb-2"
+                value={description}
+                onChange={(e) => setTitle(e.target.value)}
+                    />
+                
+                <input
+                type="text"
+                placeholder="Time in min."
+                className="form-control mb-2"
+                value={time}
+                onChange={(e) => setTitle(e.target.value)}
+                    />
+
+                <input
+                type="text"
+                placeholder="Difficulty - Easy, Medium, Hard"
+                className="form-control mb-2"
+                value={difficulty}
+                onChange={(e) => setTitle(e.target.value)}
+                    />
+                
+                <input
+                type="text"
+                placeholder="Step - 1"
+                className="form-control mb-2"
+                value={steps[0]}
+                onChange={(e) => setTitle(e.target.value)}
+                    />
+                <input
+                type="text"
+                placeholder="Step - 2"
+                className="form-control mb-2"
+                value={steps[1]}
+                onChange={(e) => setTitle(e.target.value)}
+                    />
+                <input
+                type="text"
+                placeholder="Step - 3"
+                className="form-control mb-2"
+                value={steps[2]}
+                onChange={(e) => setTitle(e.target.value)}
+                    />
+                    
+                <input
+                type="file"
+                className="form-control mb-2"
+                onChange={(e) => setImageFile(e.target.files[0])}
+                    />
+
+                <button className="btn btn-primary">Add Recipe</button>
+            </form>
+        </div>
+    );
 }
