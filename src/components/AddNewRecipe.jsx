@@ -108,28 +108,22 @@ export default function AddNewRecipe() {
                     onChange={(e) => setDifficulty(e.target.value)}
                 />
 
-                <input
-                type="text"
-                placeholder="Step - 1"
-                className="form-control mb-2"
-                value={steps[0]}
-                onChange={(e) => setTitle(e.target.value)}
-                    />
-                <input
-                type="text"
-                placeholder="Step - 2"
-                className="form-control mb-2"
-                value={steps[1]}
-                onChange={(e) => setTitle(e.target.value)}
-                    />
-                <input
-                type="text"
-                placeholder="Step - 3"
-                className="form-control mb-2"
-                value={steps[2]}
-                onChange={(e) => setTitle(e.target.value)}
-                    />
-                    
+                <div className="mb-2">
+                    <p><strong>Steps of cooking:</strong></p>
+                    {steps.map((step, index) => (
+                        <input
+                            key={index}
+                            type="text"
+                            placeholder={`Step - ${index + 1}`}
+                            className="form-control mb-2"
+                            value={step}
+                            onChange={(e) => handleStepChange(index, e.target.value)}
+                        />
+                    ))}
+                    <button type="button" onClick={addStep} className="btn btn-secondary me-2">Add Step +</button>
+                    <button type="button" onClick={removeLastStep} className="btn btn-danger">Remove last x</button>
+                </div>
+                
                 <input
                     type="file"
                     className="form-control mb-2"
