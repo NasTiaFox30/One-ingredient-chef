@@ -141,6 +141,14 @@ export default function App() {
             user={user}
           />
         )}
+
+        {showNewRecipe && (
+          <AddNewRecipe
+            onClose={() => setShowNewRecipe(false)}
+            user={user}
+          />
+        )}
+        
       </AnimatePresence>
     </>
   );
