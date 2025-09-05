@@ -19,7 +19,7 @@ export default function AddNewRecipe() {
     const [description, setDescription] = useState("");
     const [time, setTime] = useState("");
     const [difficulty, setDifficulty] = useState("");
-    const [steps, setSteps] = useState([]);
+    const [steps, setSteps] = useState([""]);
     const [imageFile, setImageFile] = useState(null);
 
     const handleSubmit = async (e) => {
@@ -51,7 +51,7 @@ export default function AddNewRecipe() {
         setDescription("");
         setTime("");
         setDifficulty("");
-        setSteps([]);
+        setSteps([""]);
         setImageFile(null);
     };
 
