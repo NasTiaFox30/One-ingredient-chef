@@ -93,6 +93,16 @@ export default function AddNewRecipe() {
         setSteps(newSteps);
     };
 
+    // Ingredients
+    const addIngredient = () => {
+        setRecipeIngredients([...recipeIngredients, { name: "", qty: "" }]);
+    }
+    const removeLastIngredient = () => {
+        if (recipeIngredients.length > 1) {
+            setRecipeIngredients(recipeIngredients.slice(0, -1));
+        }
+    };
+
     return (
         <div className="container mt-4">
             <h2>Add New Recipe</h2>
