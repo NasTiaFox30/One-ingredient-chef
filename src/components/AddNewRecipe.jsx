@@ -55,6 +55,16 @@ export default function AddNewRecipe() {
         setImageFile(null);
     };
 
+    // Steps
+    const addStep = () => {
+        setSteps([...steps, ""]);
+    };
+    const removeLastStep = () => {
+        if (steps.length > 1) {
+            setSteps(steps.slice(0, -1));
+        }
+    };
+
     return (
         <div className="container mt-4">
             <h2>Add New Recipe</h2>
