@@ -15,8 +15,8 @@ export default function RecipeDetailScreen({ recipe, onClose, user }) {
       alert("Please login to save recipes!");
       return;
     }
-    await addDoc(collection(db, "favourites"), {
-      userId: user.uid,
+    const favRef = doc(db, "users", user.uid, "favourites", recipe.id);
+    await setDoc(favRef, {
       recipeId: recipe.id,
       savedAt: serverTimestamp()
     });
