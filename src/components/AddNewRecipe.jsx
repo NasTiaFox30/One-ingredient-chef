@@ -17,9 +17,9 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 export default function AddNewRecipe() {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
-    const [time, ] = useState("");
+    const [time, setTime] = useState("");
     const [difficulty, setDifficulty] = useState("");
-    const [steps, ] = useState([]);
+    const [steps, setSteps] = useState([]);
     const [imageFile, setImageFile] = useState(null);
 
     const handleSubmit = async (e) => {
