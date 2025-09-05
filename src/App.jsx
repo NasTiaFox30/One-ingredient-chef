@@ -52,7 +52,6 @@ export default function App() {
       setUser(currentUser);
       if (currentUser) {
         await createNewUser(currentUser);
-        fetchFavourites(currentUser.uid);
       } else {
         setFavourites([]);
       }
