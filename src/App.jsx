@@ -70,14 +70,6 @@ export default function App() {
     setRecipes(data);
   };
 
-  // Fetch favourites for user
-  const fetchFavourites = async (uid) => {
-    const favRef = collection(db, "users", uid, "favourites");
-    const snapshot = await getDocs(favRef);
-    const favs = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    setFavourites(favs);
-  };
-
   // Search by ingredients
   const handleSearch = (ingredients) => {
     const results = recipes.filter(r =>
