@@ -6,6 +6,7 @@ import SearchBar from "./components/SearchBar";
 import RecipeCard from "./components/RecipeCard";
 import RecipeDetailScreen from "./components/RecipeDetailScreen";
 import FavouritesScreen from "./components/FavouritesScreen";
+import AddNewRecipe from "./components/AddNewRecipe";
 
 import { db, auth, provider } from "./firebase.config";
 import { collection, getDocs, setDoc, doc, getDoc } from "firebase/firestore";
