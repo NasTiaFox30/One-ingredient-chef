@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import { motion } from "framer-motion";
 
 import { db } from "../firebase.config";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { setDoc, doc, serverTimestamp } from "firebase/firestore";
 
 export default function RecipeDetailScreen({ recipe, onClose, user }) {
   const [portion, setPortion] = useState(1);
