@@ -18,10 +18,6 @@ export default function RecipeDetailScreen({ recipe, onClose, user }) {
     await addDoc(collection(db, "favourites"), {
       userId: user.uid,
       recipeId: recipe.id,
-      title: recipe.title,
-      image: recipe.image,
-      time: recipe.time,
-      difficulty: recipe.difficulty,
       savedAt: serverTimestamp()
     });
     alert("Recipe saved to favourites! ❤️");
