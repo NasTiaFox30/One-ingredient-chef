@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { ingredients } from "../data/ingredients";
+import {useEffect, useState } from "react";
+import { db } from "../firebase.config";
+import { collection, getDocs } from "firebase/firestore";
 
 export default function SearchBar({ onSearch }) {
   const [query, setQuery] = useState("");
