@@ -75,39 +75,10 @@ export default function AddNewRecipe() {
         <div className="container mt-4">
             <h2>Add New Recipe</h2>
             <form onSubmit={handleSubmit}>
-                
-                <input
-                    type="text"
-                    placeholder="Recipe title"
-                    className="form-control mb-2"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                />
-                
-                <input
-                    type="text"
-                    placeholder="Description"
-                    className="form-control mb-2"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                />
-                
-                <input
-                    type="text"
-                    placeholder="Time in min."
-                    className="form-control mb-2"
-                    value={time}
-                    onChange={(e) => setTime(e.target.value)}
-                />
-
-                <input
-                    type="text"
-                    placeholder="Difficulty - Easy, Medium, Hard"
-                    className="form-control mb-2"
-                    value={difficulty}
-                    onChange={(e) => setDifficulty(e.target.value)}
-                />
-
+                <input type="text" placeholder="Recipe title" className="form-control mb-2" value={title} onChange={(e) => setTitle(e.target.value)} />
+                <input type="text" placeholder="Description" className="form-control mb-2" value={description} onChange={(e) => setDescription(e.target.value)} />
+                <input type="text" placeholder="Time in min." className="form-control mb-2" value={time} onChange={(e) => setTime(e.target.value)} />
+                <input type="text" placeholder="Difficulty - Easy, Medium, Hard" className="form-control mb-2" value={difficulty} onChange={(e) => setDifficulty(e.target.value)} />                
                 <div className="mb-2">
                     <p><strong>Steps of cooking:</strong></p>
                     {steps.map((step, index) => (
@@ -124,12 +95,9 @@ export default function AddNewRecipe() {
                     <button type="button" onClick={removeLastStep} className="btn btn-danger">Remove last x</button>
                 </div>
                 
-                <input
-                    type="file"
-                    className="form-control mb-2"
-                    onChange={(e) => setImageFile(e.target.files[0])}
-                />
-                <button className="btn btn-primary">Add Recipe</button>
+                <input type="file" className="form-control mb-2" onChange={(e) => setImageFile(e.target.files[0])} />
+
+                <button type="submit" className="btn btn-primary">Add Recipe</button>
             </form>
         </div>
     );
