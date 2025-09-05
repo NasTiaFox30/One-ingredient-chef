@@ -72,6 +72,7 @@ export default function AddNewRecipe() {
         setDescription("");
         setTime("");
         setDifficulty("");
+        setRecipeIngredients([{ name: "", qty: "" }]);
         setSteps([""]);
         setImageFile(null);
     };
