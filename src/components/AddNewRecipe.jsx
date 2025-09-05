@@ -25,6 +25,17 @@ export default function AddNewRecipe() {
     const [recipeIngredients, setRecipeIngredients] = useState([{ name: "", qty: "" }]);
     const [ingredients, setingredients] = useState([]);
 
+    // Fetch ingredients from Firestore 
+    useEffect(() => {
+        fetchIngredients();
+    }, []);
+
+    const fetchIngredients = async () => {
+        const querySnapshot = await getDocs(collection(db, "ingredients"));
+        const data = querySnapshot.docs.map(doc => doc.data());
+        setingredients(data);
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!title || !imageFile) {
