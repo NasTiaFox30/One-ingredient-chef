@@ -62,11 +62,7 @@ export default function AddNewRecipe() {
             image: imageUrl,
             time,
             difficulty,
-            ingredients: [
-            { icon: "🥚", name: "Eggs", qty: "2 pcs" },
-            { icon: "🧀", name: "Cheese", qty: "50 g" },
-            { icon: "🥛", name: "Milk", qty: "50 ml" }
-            ],
+            ingredients: finalIngredients,
             steps: steps,
             createdAt: new Date().toISOString()
         });
