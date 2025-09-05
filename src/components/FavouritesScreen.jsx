@@ -11,14 +11,20 @@ export default function FavouritesScreen({ user, onClose }) {
   useEffect(() => {
     if (!user) return;
     const fetchFavourites = async () => {
-      const q = query(
-        collection(db, "favourites"),
-        where("userId", "==", user.uid),
-        orderBy("savedAt", "desc")
+      const favRef = collection(db, "users", user.uid, "favourites");
+      const q = query(favRef, orderBy("savedAt", "desc"));
+      const snapshot = await getDocs(q);
+
+      const favData = await Promise.all(
+        snapshot.docs.map(async (docSnap) => {
+          const { recipeId } = docSnap.data();
+          const recipeRef = doc(db, "recipes", recipeId);
+          const recipeSnap = await getDoc(recipeRef);
+          return recipeSnap.exists() ? { id: recipeSnap.id, ...recipeSnap.data() } : null;
+        })
       );
-      const querySnapshot = await getDocs(q);
-      const data = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      setFavourites(data);
+
+      setFavourites(favData.filter(Boolean));
     };
     fetchFavourites();
   }, [user]);
