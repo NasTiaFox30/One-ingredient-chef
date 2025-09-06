@@ -77,6 +77,8 @@ export default function App() {
     );
     setFilteredRecipes(results);
   };
+  
+  const showCatGif = filteredRecipes.length === 0;
 
   return (
     <>
