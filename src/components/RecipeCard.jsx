@@ -1,4 +1,5 @@
 import { Card, Button } from "react-bootstrap";
+import { motion } from "framer-motion";
 
 export default function RecipeCard({ recipe, onShow }) {
   return (
