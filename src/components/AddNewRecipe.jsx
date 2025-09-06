@@ -227,6 +227,17 @@ export default function AddNewRecipe({ onClose }) {
                         </Alert>
                     </motion.div>
                 )}
+                {loading && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="overlay d-flex justify-content-center align-items-center"
+                    >
+                        <Spinner animation="border" variant="secondary" className="_loading" />
+                    </motion.div>
+                )}
             </AnimatePresence>
         </motion.div>
     );
