@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Button } from "react-bootstrap";
+import { useState, useEffect } from "react";
+import { Button, Alert } from "react-bootstrap";
 import { motion } from "framer-motion";
 
 import { db } from "../firebase.config";
