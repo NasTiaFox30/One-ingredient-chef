@@ -78,6 +78,7 @@ export default function FavouritesScreen({ user, onClose }) {
             <div key={recipe.id} className="col-md-4 mb-4">
               <Card className="shadow-sm h-100">
                 <Card.Img variant="top" src={recipe.image} alt={recipe.title} />
+                <Button variant="danger" className="mt-4 position-absolute top-0 start-100 translate-middle badge bg-danger p-2" onClick={() => handleRemoveRecipe(recipe.id)}>X</Button>
                 <Card.Body>
                   <Card.Title>{recipe.title}</Card.Title>
                   <Card.Text>⏱ {recipe.time} | {recipe.difficulty}</Card.Text>
