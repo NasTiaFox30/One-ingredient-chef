@@ -91,9 +91,9 @@ export default function App() {
         user={user}
       />
 
-      <div className="container text-center mb-3">
+      <div className="container text-center mt-4 mb-1">
         {user ? (
-          <p>Welcome, {user.displayName}</p>
+          <p>~Welcome, {user.displayName}~</p>
         ) : (
           <p>Can't find an interesting recipe? You are at the right place!</p>
         )}
