@@ -90,7 +90,7 @@ export default function AddNewRecipe({ onClose }) {
             createdAt: new Date().toISOString()
         });
 
-        alert("Recipe added successfully!");
+        setShowAlert("success");
         setTitle("");
         setDescription("");
         setTime("");
