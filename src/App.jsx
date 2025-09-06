@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { AnimatePresence } from "framer-motion";
+import {motion, AnimatePresence } from "framer-motion";
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
 import SearchBar from "./components/SearchBar";
@@ -103,16 +103,26 @@ export default function App() {
       </div>
 
       <AnimatePresence>
-      <div className="container d-flex flex-wrap gap-3 justify-content-center">
-        {filteredRecipes.map(recipe => (
-          <RecipeCard
-            key={recipe.id}
-            recipe={recipe}
-            onShow={(r) => { setSelectedRecipe(r); setShowDetail(true); }}
-          />
-        ))}
-      </div>
+        {filteredRecipes.length > 0 && (
+          <motion.div
+            className="container d-flex flex-wrap gap-3 justify-content-center"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+          >
+            {filteredRecipes.map(recipe => (
+              <RecipeCard
+                key={recipe.id}
+                recipe={recipe}
+                onShow={(r) => { setSelectedRecipe(r); setShowDetail(true); }}
+              />
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
 
+      <AnimatePresence>
         {showDetail && (
           <RecipeDetailScreen
             recipe={selectedRecipe}
