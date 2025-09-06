@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, Alert } from "react-bootstrap";
 import { motion } from "framer-motion";
 
 import { db } from "../firebase.config";
