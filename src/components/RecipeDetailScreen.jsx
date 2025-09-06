@@ -6,6 +6,17 @@ import { db } from "../firebase.config";
 import { setDoc, doc, serverTimestamp } from "firebase/firestore";
 
 export default function RecipeDetailScreen({ recipe, onClose, user }) {
+  const [showAlert, setShowAlert] = useState(false);
+  useEffect(() => {
+        let timer;
+        if (showAlert) {
+            timer = setTimeout(() => {
+                setShowAlert(false);
+            }, 3000);
+        }
+        return () => clearTimeout(timer);
+  }, [showAlert]);
+  
   const [portion, setPortion] = useState(1);
 
   if (!recipe) return null;
@@ -20,7 +31,7 @@ export default function RecipeDetailScreen({ recipe, onClose, user }) {
       recipeId: recipe.id,
       savedAt: serverTimestamp()
     });
-    alert("Recipe saved to favourites! ❤️");
+    setShowAlert(true);
   };
 
   return (
@@ -88,6 +99,12 @@ export default function RecipeDetailScreen({ recipe, onClose, user }) {
           <Button variant="info">📤 Share</Button>
         </div>
       </div>
+
+      {showAlert && (
+        <Alert variant="success" className="text-center _alert">
+          Recipe saved to favourites! ❤️
+        </Alert>
+      )}
     </motion.div>
   );
 }
