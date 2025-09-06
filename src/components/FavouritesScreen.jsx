@@ -50,7 +50,13 @@ export default function FavouritesScreen({ user, onClose }) {
 
   if (!user) {
     return (
-      <motion.div className="favourites-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+      <motion.div
+        className="favourites-overlay"
+        initial={{ opacity: 0, y: 80 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 50 }}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
+      >
         <div className="container text-center">
           <Alert variant="light">
             <Alert.Heading>Log in first!</Alert.Heading>
