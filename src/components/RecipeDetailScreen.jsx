@@ -31,7 +31,7 @@ export default function RecipeDetailScreen({ recipe, onClose, user }) {
       recipeId: recipe.id,
       savedAt: serverTimestamp()
     });
-    setShowAlert(true);
+    setShowAlert("save");
   };
 
   return (
