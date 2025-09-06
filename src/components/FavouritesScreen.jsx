@@ -23,8 +23,8 @@ export default function FavouritesScreen({ user, onClose }) {
       })
     );
 
-      setFavourites(favData.filter(Boolean));
-    };
+    setFavourites(favData.filter(Boolean));
+  };
     fetchFavourites();
   }, [user]);
 
