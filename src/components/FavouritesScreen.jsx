@@ -3,7 +3,7 @@ import { Button, Card } from "react-bootstrap";
 import { motion } from "framer-motion";
 
 import { db } from "../firebase.config";
-import { collection, getDocs, doc, getDoc, orderBy, query } from "firebase/firestore";
+import { collection, getDocs, doc, getDoc, deleteDoc, orderBy, query } from "firebase/firestore";
 
 export default function FavouritesScreen({ user, onClose }) {
   const [favourites, setFavourites] = useState([]);
