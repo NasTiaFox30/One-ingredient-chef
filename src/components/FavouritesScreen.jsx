@@ -8,7 +8,7 @@ import { collection, getDocs, doc, getDoc, deleteDoc, orderBy, query } from "fir
 export default function FavouritesScreen({ user, onClose }) {
   const [favourites, setFavourites] = useState([]);
 
-  useEffect(() => {
+  const fetchFavourites = async () => {
     if (!user) return;
     const fetchFavourites = async () => {
       const favRef = collection(db, "users", user.uid, "favourites");
