@@ -81,9 +81,6 @@ export default function FavouritesScreen({ user, onClose }) {
                 <Card.Body>
                   <Card.Title>{recipe.title}</Card.Title>
                   <Card.Text>⏱ {recipe.time} | {recipe.difficulty}</Card.Text>
-                  <Button variant="primary" onClick={() => alert("TODO: Open details")}>
-                    View Details
-                  </Button>
                 </Card.Body>
               </Card>
             </div>
