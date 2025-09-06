@@ -23,7 +23,7 @@ export default function RecipeDetailScreen({ recipe, onClose, user }) {
 
   const handleSaveRecipe = async () => {
     if (!user) {
-      alert("Please login to save recipes!");
+      setShowAlert("logininfo");
       return;
     }
     const favRef = doc(db, "users", user.uid, "favourites", recipe.id);
