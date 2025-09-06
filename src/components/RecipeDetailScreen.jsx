@@ -105,6 +105,11 @@ export default function RecipeDetailScreen({ recipe, onClose, user }) {
           Recipe saved to favourites! ❤️
         </Alert>
       )}
+      {showAlert === "logininfo" && (
+        <Alert variant="info" className="text-center _alert">
+          Please <strong>Log-in</strong> to save recipes!
+        </Alert>
+      )}
     </motion.div>
   );
 }
