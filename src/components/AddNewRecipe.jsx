@@ -202,16 +202,32 @@ export default function AddNewRecipe({ onClose }) {
                 </form>
             </div>
 
-            {showAlert === "success" && (
-                <Alert variant="success" className="text-center _alert">
-                    Recipe created - successfully ✨
-                </Alert>
-            )}
-            {showAlert === "warning" && (
-                <Alert variant="danger" className="text-center _alert">
-                    Please fill all fields!
-                </Alert>
-            )}
+            <AnimatePresence>
+                {showAlert === "success" && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <Alert variant="success" className="text-center _alert">
+                            Recipe created - successfully ✨
+                        </Alert>
+                    </motion.div>
+                )}
+                {showAlert === "warning" && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <Alert variant="danger" className="text-center _alert">
+                            Please fill all fields!
+                        </Alert>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </motion.div>
     );
 }
