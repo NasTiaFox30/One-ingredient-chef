@@ -102,6 +102,7 @@ export default function App() {
         <button type="button" className="btn btn-outline-success" onClick={() => setShowNewRecipe(true)}>Add your own recipe🗒️+</button>
       </div>
 
+      <AnimatePresence>
       <div className="container d-flex flex-wrap gap-3 justify-content-center">
         {filteredRecipes.map(recipe => (
           <RecipeCard
@@ -112,7 +113,6 @@ export default function App() {
         ))}
       </div>
 
-      <AnimatePresence>
         {showDetail && (
           <RecipeDetailScreen
             recipe={selectedRecipe}
