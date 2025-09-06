@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
 import SearchBar from "./components/SearchBar";
 import RecipeCard from "./components/RecipeCard";
