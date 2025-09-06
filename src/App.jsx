@@ -107,6 +107,17 @@ export default function App() {
       
       <div className="container d-flex flex-wrap gap-3 justify-content-center">
         <AnimatePresence>
+          {showCatGif && (
+            <motion.div
+              key="cat-chef"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 2, ease: "easeIn" }}
+            >
+              <img src={catgif} style={{ width: "200px", height: "200px" }} alt="Chef cat" />
+            </motion.div>
+          )}
+
           {filteredRecipes.map((recipe) => (
             <RecipeCard
               key={recipe.id}
