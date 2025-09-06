@@ -69,7 +69,10 @@ export default function FavouritesScreen({ user, onClose }) {
         transition={{ duration: 0.4, ease: "easeInOut" }}
       >
         <div className="container text-center">
-          <h2>No favourite recipes yet!</h2>
+          <Alert variant="light">
+            <Alert.Heading>No favourite recipes yet!</Alert.Heading>
+            <p>Add your first recipe by clicking button bellow :)</p>
+          </Alert>
           <Button variant="success" className="mt-4" onClick={onClose}>
             ➕ Add more recipes to your collection!
           </Button>
