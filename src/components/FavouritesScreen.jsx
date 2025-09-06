@@ -98,19 +98,26 @@ export default function FavouritesScreen({ user, onClose }) {
           <Button variant="outline-secondary" onClick={onClose}>✖</Button>
         </div>
 
-        <div className="row">
-          {favourites.map(recipe => (
-            <div key={recipe.id} className="col-md-4 mb-4">
-              <Card className="shadow-sm h-100">
-                <Card.Img variant="top" src={recipe.image} alt={recipe.title} />
-                <Button variant="danger" className="mt-4 position-absolute top-0 start-100 translate-middle badge bg-danger p-2" onClick={() => handleRemoveRecipe(recipe.id)}>X</Button>
-                <Card.Body>
-                  <Card.Title>{recipe.title}</Card.Title>
-                  <Card.Text>⏱ {recipe.time} | {recipe.difficulty}</Card.Text>
-                </Card.Body>
-              </Card>
-            </div>
-          ))}
+        <div className="d-flex flex-wrap justify-content-start">
+          <AnimatePresence>
+            {favourites.map(recipe => (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
+              >
+                <Card style={{ width: "15rem" }} className="col-md-4 mb-4 shadow-sm h-90 m-3">
+                  <Card.Img variant="top" src={recipe.image} alt={recipe.title} />
+                  <Button variant="danger" className="mt-4 position-absolute top-0 start-100 translate-middle badge bg-danger p-2" onClick={() => handleRemoveRecipe(recipe.id)}>X</Button>
+                  <Card.Body>
+                    <Card.Title>{recipe.title}</Card.Title>
+                    <Card.Text>⏱ {recipe.time} | {recipe.difficulty}</Card.Text>
+                  </Card.Body>
+                </Card>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
 
         <div className="text-center my-4">
