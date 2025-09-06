@@ -67,7 +67,9 @@ export default function AddNewRecipe({ onClose }) {
             return;
         }
 
-        const imageUrl = await uploadImage(imageFile);
+        setLoading(true);
+        try {
+            const imageUrl = await uploadImage(imageFile);
 
         const finalIngredients = recipeIngredients
             .filter(ing => ing.name && ing.qty)
@@ -99,6 +101,13 @@ export default function AddNewRecipe({ onClose }) {
         setRecipeIngredients([{ name: "", qty: "" }]);
         setSteps([""]);
         setImageFile(null);
+            
+        } catch (error) {
+            console.error("Error adding recipe:", error);
+            setShowAlert("warning");
+        } finally {
+            setLoading(false);
+        }
     };
 
     // Steps
