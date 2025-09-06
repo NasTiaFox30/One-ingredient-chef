@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { db, storage } from "../firebase.config";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { Button, Alert } from "react-bootstrap";
+import { Button, Alert, Spinner} from "react-bootstrap";
 
 // Save images
   const uploadImage = async (file) => {
