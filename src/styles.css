@@ -10,16 +10,16 @@
 
 /* RecipePageScreen */
 .recipe-detail-overlay,
-.favourites-overlay {
+.favourites-overlay,
+.recipe-detail-overlay {
     position: fixed;
-    top: 60px;
+    top: 50px;
     left: 0;
-    width: 100%;
-    height: calc(100% - 60px);
+    right: 0;
+    bottom: 0;
     background: #FFFDF6;
     z-index: 1;
     overflow-y: auto;
-    animation: fadeI n 0.3s ease;
     padding: 20px;
 }
 
