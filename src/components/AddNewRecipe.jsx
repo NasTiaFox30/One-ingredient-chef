@@ -17,6 +17,17 @@ import { Button, Alert } from "react-bootstrap";
 };
 
 export default function AddNewRecipe({ onClose }) {
+    const [showAlert, setShowAlert] = useState("NaN");
+    useEffect(() => {
+            let timer;
+            if (showAlert !== 'NaN') {
+                timer = setTimeout(() => {
+                    setShowAlert("NaN");
+                }, 3000);
+            }
+            return () => clearTimeout(timer);
+    }, [showAlert]);
+    
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [time, setTime] = useState("");
