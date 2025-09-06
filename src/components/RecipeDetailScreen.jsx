@@ -100,7 +100,7 @@ export default function RecipeDetailScreen({ recipe, onClose, user }) {
         </div>
       </div>
 
-      {showAlert && (
+      {showAlert === "save" && (
         <Alert variant="success" className="text-center _alert">
           Recipe saved to favourites! ❤️
         </Alert>
