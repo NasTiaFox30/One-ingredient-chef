@@ -25,6 +25,26 @@ export default function FavouritesScreen({ user, onClose }) {
 
     setFavourites(favData.filter(Boolean));
   };
+
+  const handleRemoveRecipe = async (recipeId) => {
+    try {
+      if (!user) {
+        alert("Please log in to remove recipes.");
+        return;
+      }
+      const favDocRef = doc(db, "users", user.uid, "favourites", recipeId);
+
+      await deleteDoc(favDocRef);
+      alert("Recipe removed successfully!");
+      fetchFavourites();
+
+    } catch (error) {
+      console.error("Error removing recipe:", error);
+      alert("Failed to remove recipe.");
+    }
+  };
+
+  useEffect(() => {
     fetchFavourites();
   }, [user]);
 
