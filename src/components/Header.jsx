@@ -5,7 +5,7 @@ import { loginWithGoogle, logout } from "../firebase.config";
 
 export default function Header({ user, onShowFavourites }) {
   return (
-    <Navbar bg="light" expand="lg" className="mb-4 sticky-top">
+    <Navbar bg="light" expand="lg" className="sticky-top">
       <Container className="justify-content-between">
         <Nav>
           <Button variant="outline-primary" onClick={onShowFavourites}>
