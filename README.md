@@ -26,7 +26,7 @@ Struktura Firestore:
 - firebase-tools
 
 ## Visit site: 
-
+https://one-ingredient-chef.web.app/
 
 ---------------------------------------------------------------
 _**Creator: Anastasiia Bzova 2025**_
