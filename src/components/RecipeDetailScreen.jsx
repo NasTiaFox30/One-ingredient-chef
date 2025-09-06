@@ -6,12 +6,12 @@ import { db } from "../firebase.config";
 import { setDoc, doc, serverTimestamp } from "firebase/firestore";
 
 export default function RecipeDetailScreen({ recipe, onClose, user }) {
-  const [showAlert, setShowAlert] = useState(false);
+  const [showAlert, setShowAlert] = useState("NaN");
   useEffect(() => {
         let timer;
-        if (showAlert) {
+        if (showAlert !== 'NaN') {
             timer = setTimeout(() => {
-                setShowAlert(false);
+                setShowAlert("NaN");
             }, 3000);
         }
         return () => clearTimeout(timer);
