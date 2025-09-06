@@ -54,8 +54,6 @@ export default function App() {
       setUser(currentUser);
       if (currentUser) {
         await createNewUser(currentUser);
-      } else {
-        setFavourites([]);
       }
     });
     return () => unsubscribe();
@@ -78,17 +76,6 @@ export default function App() {
       r.ingredients.some(i => ingredients.includes(i.name))
     );
     setFilteredRecipes(results);
-  };
-
-  // Save recipe to favourites
-  const handleSaveRecipe = async (recipe) => {
-    if (!user) {
-      alert("Please login first to save recipes!");
-      return;
-    }
-    const favRef = doc(db, "users", user.uid, "favourites", recipe.id);
-    await setDoc(favRef, { ...recipe, savedAt: new Date().toISOString() });
-    alert("Recipe saved! ❤️");
   };
 
   return (
@@ -129,7 +116,6 @@ export default function App() {
         {showDetail && (
           <RecipeDetailScreen
             recipe={selectedRecipe}
-            onSaveRecipe={() => handleSaveRecipe(selectedRecipe)}
             onClose={() => setShowDetail(false)}
             user={user}
           />
