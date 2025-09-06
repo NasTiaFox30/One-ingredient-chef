@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
 import SearchBar from "./components/SearchBar";
