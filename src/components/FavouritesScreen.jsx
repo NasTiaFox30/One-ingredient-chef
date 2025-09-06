@@ -52,7 +52,10 @@ export default function FavouritesScreen({ user, onClose }) {
     return (
       <motion.div className="favourites-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         <div className="container text-center">
-          <h2>Please login first ;)</h2>
+          <Alert variant="light">
+            <Alert.Heading>Log in first!</Alert.Heading>
+            <p>After login ypu will see your recipes :)</p>
+          </Alert>
           <Button variant="success" className="mt-4" onClick={onClose}>Go back</Button>
         </div>
       </motion.div>
