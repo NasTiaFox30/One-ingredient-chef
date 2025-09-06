@@ -200,6 +200,17 @@ export default function AddNewRecipe({ onClose }) {
                     <button type="submit" className="btn btn-primary">Add Recipe</button>
                 </form>
             </div>
+
+            {showAlert === "success" && (
+                <Alert variant="success" className="text-center _alert">
+                    Recipe created - successfully ✨
+                </Alert>
+            )}
+            {showAlert === "warning" && (
+                <Alert variant="danger" className="text-center _alert">
+                    Please fill all fields!
+                </Alert>
+            )}
         </motion.div>
     );
 }
