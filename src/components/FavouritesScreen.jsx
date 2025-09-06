@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button, Card, Alert } from "react-bootstrap";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 import { db } from "../firebase.config";
 import { collection, getDocs, doc, getDoc, deleteDoc, orderBy, query } from "firebase/firestore";
