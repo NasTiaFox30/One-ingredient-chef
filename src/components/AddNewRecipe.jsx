@@ -40,8 +40,18 @@ export default function AddNewRecipe({ onClose }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!title || !imageFile) {
-            alert("Please enter title and select an image");
+        if (!title || !description || !time || !difficulty || !imageFile) {
+            setShowAlert("warning");
+            return;
+        }
+        const hasValidIngredient = recipeIngredients.some(ing => ing.name.trim() !== "" && ing.qty.trim() !== "");
+        if (!hasValidIngredient) {
+            setShowAlert("warning");
+            return;
+        }
+        const hasValidStep = steps.some(step => step.trim() !== "");
+        if (!hasValidStep) {
+            setShowAlert("warning");
             return;
         }
 
