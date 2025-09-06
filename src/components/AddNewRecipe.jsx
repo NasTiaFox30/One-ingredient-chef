@@ -17,6 +17,7 @@ import { Button, Alert } from "react-bootstrap";
 };
 
 export default function AddNewRecipe({ onClose }) {
+    const [loading, setLoading] = useState(false);
     const [showAlert, setShowAlert] = useState("NaN");
     useEffect(() => {
             let timer;
